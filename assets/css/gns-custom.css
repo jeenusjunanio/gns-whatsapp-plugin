@@ -1,0 +1,46 @@
+.gns-wa-icon{
+	display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: #25d366;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 50%;
+    z-index: 999;
+}
+.gns-wa-icon:hover{
+	color: #ffffff;
+}
+.gns-wa-top-left{
+	position: fixed;
+	top: 30px;
+	left: 20px;
+}
+.gns-wa-top-right{
+	position: fixed;
+	top: 30px;
+	right: 20px;
+}
+.gns-wa-bottom-left{
+	position: fixed;
+	bottom: 30px;
+	left: 20px;
+}
+.gns-wa-bottom-right{
+	position: fixed;
+	bottom: 30px;
+	right: 20px;
+}
+.gns-wa-middle-left{
+	position: fixed;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+}
+.gns-wa-middle-right{
+	position: fixed;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+}
