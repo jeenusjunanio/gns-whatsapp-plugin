@@ -39,8 +39,28 @@ function gns_wa_icon() {
 				break;
 		}
 
+		// Check if the user is accessing the website from a mobile device
+		function isMobileDevice() {
+			$mobileDevices = array("Android", "iPhone", "iPad", "iPod", "BlackBerry", "Windows Phone");
+			$userAgent = $_SERVER['HTTP_USER_AGENT'];
+			foreach ($mobileDevices as $device) {
+				if (stristr($userAgent, $device)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
 		// Output the WhatsApp icon HTML with the mobile number and button position
-		echo '<a href="https://web.whatsapp.com/send?phone=' . $mobile_number . '" target="_blank" class="gns-wa-icon gns-wa-'.$button_position.'"><i class="fab fa-whatsapp ' . $icon_size . '"></i></a>';
+		// echo '<a href="https://web.whatsapp.com/send?phone=' . $mobile_number . '" target="_blank" class="gns-wa-icon gns-wa-'.$button_position.'"><i class="fab fa-whatsapp ' . $icon_size . '"></i></a>';
+
+		if (isMobileDevice()) {
+			// Mobile device: Open in WhatsApp app
+			echo '<a href="whatsapp://send?phone=' . $mobile_number . '" class="gns-wa-icon gns-wa-'.$button_position.'"><i class="fab fa-whatsapp ' . $icon_size . '"></i></a>';
+		} else {
+			// Desktop device: Open in WhatsApp Web
+			echo '<a href="https://web.whatsapp.com/send?phone=' . $mobile_number . '" target="_blank" class="gns-wa-icon gns-wa-'.$button_position.'"><i class="fab fa-whatsapp ' . $icon_size . '"></i></a>';
+		}
 	}
 	
 }
